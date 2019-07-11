@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>随机抽奖</title>
+</head>
+<style>
+    body{
+        max-width: 750px;
+        margin: auto;
+    }
+</style>
+<body>
+<p id="de"></p>
+<p id="demo">
+    <span>一等奖：汽车</span><br>
+    <span>二等奖：电动自行车</span><br>
+    <span>三等奖：吹风机</span><br>
+    <span>四等奖：100元现金</span><br>
+    <span>五等奖：2元现金</span><br>
+    <span>六等奖：谢谢惠顾</span>
+</p>
+<button onclick="draw()">点击抽奖</button>
+<p>结果：<span id="result"></span></p>
+</body>
+<script>
+    var prize_list = [
+        {
+            prize_name: '一等奖：汽车',
+            percentage: 0.1
+        },
+        {
+            prize_name: '二等奖：电动自行车',
+            percentage: 1
+        },
+        {
+            prize_name: '三等奖：吹风机',
+            percentage: 3
+        },
+        {
+            prize_name: '四等奖：100元现金',
+            percentage: 5
+        },
+        {
+            prize_name: '五等奖：2元现金',
+            percentage: 20
+        },
+        {
+            prize_name: '谢谢惠顾',
+            percentage: 70.9
+        }
+    ];
+    handlePrizeList();
+    function handlePrizeList() {
+        var totalPercentage = 0;
+        for (var i = 0;i < prize_list.length;i++) {
+            prize_list[i].min = totalPercentage;
+            totalPercentage += prize_list[i].percentage * 10;
+            prize_list[i].max = totalPercentage;
+        }
+    }
+    function getPrize() {
+        var randNumber = getRurIn(1, 1000);
+        console.log(randNumber);
+        var prize_name = '谢谢惠顾！！！！！！！';
+        for (var i = 0;i < prize_list.length;i++) {
+            if (randNumber > prize_list[i].min && randNumber <=  prize_list[i].max) {
+                prize_name = prize_list[i].prize_name;
+                break;
+            }
+        }
+
+        return prize_name;
+    }
+    function getRurIn(min, max) {
+        return Math.floor(Math.random() * (max - min +1)) + min;
+    }
+    function draw () {
+        document.getElementById("result").innerHTML = getPrize();
+    }
+
+
+</script>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    body {
+        margin: 20px;
+    }
+    #text{
+        width: 50%;
+    }
+    #btn {
+        background-color: #9191dd;
+        color: #fff;
+        border: 0;
+        padding: 4px 10px;
+        margin-top: 20px;
+    }
+</style>
+<body>
+<textarea type="value" id="text" mixlength="140" oninput="txt()"></textarea>
+<div><span id="number">0</span>/140</div>
+<button id="btn" onclick="result()">确认发送</button>
+<!--获取到的内容和时间-->
+<br><div id="result"></div></br>
+
+</body>
+<script>
+    // 点击确认发送获取文本域的内容以及当前时间
+    function txt() {
+        var txtNumber = document.getElementById('number');
+        var btn1 = document.getElementById('text').value;
+        txtNumber.innerHTML = btn1.length;
+        console.log(btn1)
+    }
+    function result() {
+        var btn = document.getElementById('text').value;
+        var result = document.getElementById('result')
+        var mytime = new Date();
+        // var year = mytime.getFullYear();
+        var hour = mytime.getHours();
+        var minutes = mytime.getMinutes();
+        var seconds = mytime.getSeconds();
+        if (minutes >= 1 && minutes <= 9) {
+            minutes = "0" + minutes;
+        }
+        if (seconds >= 1 && seconds <= 9) {
+            seconds = "0" + seconds;
+        }
+        result.innerHTML = result.innerHTML+ btn + hour + '时'+ minutes + '分' + seconds + '秒';
+        // result.innerHTML = result.innerHTML+ btn + mytime;
+    }
+</script>
+</html>

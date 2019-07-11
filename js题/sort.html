@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>数组排序1</title>
+</head>
+<body>
+    <p id="demo"></p>
+</body>
+<script>
+    var returns = function (a,b) {
+        if (a < b){
+            return -1;
+        }else if(a > b){
+            return 1;
+        }else {
+            return 0;
+        }
+    }
+    var number_array = [10, 1, 25, 9, 50, 100];
+    document.getElementById("demo").innerHTML = number_array.sort(returns);
+</script>
+</html>

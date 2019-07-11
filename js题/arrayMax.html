@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>取数组最大值</title>
+</head>
+<body>
+    <script>
+        let arr = [5,6,10,10,12,6,5];
+        let max = arr[0]; // for 循环i进行自加 i++
+        for (i = 0; i< arr.length; i++) {
+            let count = arr[i];
+            // 三目运算符写法
+            // count > max? max = count:null;
+            if (max < count) {
+                max = count;
+            }
+        }
+        console.log(max)
+    </script>
+</body>
+</html>

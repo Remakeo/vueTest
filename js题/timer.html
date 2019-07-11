@@ -1,0 +1,78 @@
+<!Doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>计时器</title>
+    <style>
+        #record {
+            margin: 20px;
+            border: 2px solid pink;
+            width: 20%;
+            text-align: center;
+            padding: 10px 0;
+        }
+        body button {
+            margin: 10px;
+        }
+        #time {
+            width: 80%;
+            padding-top: 20px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+<button onclick="start()">开始计时</button>
+<button onclick="stop()">暂停计时</button>
+<button onclick="recordTime()">记录时间</button>
+<button onclick="clearResult()">清空</button>
+<!--记录时间盒子-->
+<div id="time">0:0:0:0</div>
+<div id="record"></div>
+<script>
+    let hour = 0;       // 小时
+    let minute = 0;     // 分
+    let second = 0;     // 秒
+    let millisecond = 0;    // 毫秒
+    let record = [];
+    function start() {
+        int = setInterval(timer,50);
+    }
+    function stop() {
+        window.clearInterval(int);
+    }
+    function timer() {
+        millisecond += 50;
+        if (millisecond >= 1000) {
+            millisecond = 0;
+            second += 1;
+        } if (second >= 60) {
+            second = 0;
+            minute += 1;
+        } if (minute >= 60) {
+            minute = 0;
+            hour += 1;
+        }
+        document.getElementById('time').innerHTML = hour + ':' + minute + ':' + second + ':'+ millisecond;
+    }
+    // 点击清空
+    function clearResult() {
+        hour = 0;
+        minute = 0;
+        second = 0;
+        millisecond = 0;
+        document.getElementById('time').innerHTML = hour + ':' + minute + ':'+ second + ':' + millisecond;
+        document.getElementById('record').innerHTML = '';
+    }
+    // 记录时间
+    function recordTime() {
+        record.push(hour + ':' + minute + ':'+ second + ':' + millisecond);
+        let temp = '';
+        for (let i = 0; i < record.length; i++) {
+            temp += record[i] + '<br>';
+        }
+        document.getElementById('record').innerHTML = temp;
+    }
+</script>
+</body>
+</html>

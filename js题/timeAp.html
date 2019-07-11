@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>上午下午时间</title>
+</head>
+<style>
+    body{
+        max-width: 760px;
+        margin: auto;
+    }
+    #demo {
+        border: 2px solid blue;
+        text-align: center;
+        padding: 10px 0;
+    }
+</style>
+<body>
+    <p id="demo"></p>
+</body>
+<script>
+    // console.log(time);
+    setInterval(function () {
+        var time = new Date();
+        let hour = time.getHours();
+        let minute = time.getMinutes();
+        let second = time.getSeconds();
+        if (hour <= 12) {
+            document.getElementById('demo').innerHTML = 'AM' + ' ' + hour + ':' + sanumber(minute) + ':' + sanumber(second);
+        } else {
+            hour -= 12;
+            document.getElementById('demo').innerHTML = 'PM' + ' ' + hour + ':' + sanumber(minute) + ':' + sanumber(second);
+        }
+    },500)
+    // 补0
+    function sanumber(vale) {
+        return vale < 10 ? "0" + vale : vale;
+    }
+</script>
+</html>

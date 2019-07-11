@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>第二杯半价</title>
+</head>
+<body>
+<div>
+    杯数：<input id="bs" type="value" />
+    <br>
+    金额：<p id="je"></p>
+    <br>
+    <br>
+    <button onclick="js()">结算</button>
+</div>
+</body>
+<script>
+    function js() {
+        var bs1 = document.getElementById("bs").value;
+        var zong = 0;
+        var money = 10;
+        // 3.25 双数杯数价格+ 剩下单数杯数 × 一杯价格
+        zong = (bs1% 2)*money + parseInt(bs1/2)*1.5*money;
+        document.getElementById("je").innerHTML = zong;
+    }
+</script>
+</html>

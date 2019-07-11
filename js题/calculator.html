@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>计算器</title>
+</head>
+<style>
+    body{
+        max-width: 760px;
+        margin: auto;
+        font-size: 20px;
+        line-height: 20px;
+    }
+</style>
+<body>
+<form style="text-align: center">
+    <p id="xs">
+        <!--计算-->
+    <p id="procedure" style="border:2px solid blue!important;"></p>
+    <!--结果-->
+    <p id="result" style="text-align:right; border:2px solid red!important;">0</p>
+    <!--返回指定属性值-->
+    <span title="1"  onclick="get(this.getAttribute('title'))">1</span>
+    <span title="2"  onclick="get(this.getAttribute('title'))">2</span>
+    <span title="3"  onclick="get(this.getAttribute('title'))">3</span>
+    <span title="4"  onclick="get(this.getAttribute('title'))">4</span><br>
+    <span title="5"  onclick="get(this.getAttribute('title'))">5</span>
+    <span title="6"  onclick="get(this.getAttribute('title'))">6</span>
+    <span title="7"  onclick="get(this.getAttribute('title'))">7</span>
+    <span title="8"  onclick="get(this.getAttribute('title'))">8</span><br>
+    <span title="9"  onclick="get(this.getAttribute('title'))">9</span>
+    <span title="0"  onclick="get(this.getAttribute('title'))">0</span>
+    <span title="-"  onclick="get(this.getAttribute('title'))">-</span>
+    <span title="*"  onclick="get(this.getAttribute('title'))">*</span><br>
+    <span title="+"  onclick="get(this.getAttribute('title'))">+</span>
+    <span title="/"  onclick="get(this.getAttribute('title'))">/</span>
+    <span title="c"  onclick="get(this.getAttribute('title'))">c</span>
+    <span title="="  onclick="showResult()">=</span>
+    </p>
+</form>
+</body>
+<script>
+    var procedure = '';
+    var result = 0;
+
+    function get(value){
+        console.log(value);
+        procedure += ' ' + value
+        if(value == "+"){
+
+        }else if(value == "-"){
+
+        }else if(value == "/"){
+
+        }else if(value == "*"){
+
+        }else  if(value == "="){
+//            var a = document.getElementById("procedure").innerHTML;
+//            console.log(a)
+            showResult();
+
+        }else  if(value == "c"){
+            clearResult();
+        }else {
+
+        }
+        refreshScreen();
+    }
+    //清空结果
+    function clearResult() {
+        procedure = '';
+        result = 0;
+        refreshScreen();
+        showResult();
+    }
+    //    刷新屏幕
+    function refreshScreen() {
+        document.getElementById("procedure").innerHTML = procedure;
+        document.getElementById("result").innerHTML = '';
+    }
+    //显示结果
+    function showResult() {
+        result = document.getElementById("procedure").innerHTML;
+        //用来计算字符串
+        document.getElementById("result").innerHTML = eval(result);
+    }
+</script>
+</html>

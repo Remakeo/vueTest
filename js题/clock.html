@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>钟表</title>
+</head>
+<body>
+<div class="biao">
+    <div id="shi">
+        <div id="shizhen"></div>
+    </div>
+    <div id="fen">
+        <div id="fenzhen"></div>
+    </div>
+    <div id="miao">
+        <div id="miaozhen"></div>
+    </div>
+</div>
+<div id="time">
+
+</div>
+</body>
+<style>
+    .biao {
+        width: 400px;
+        height: 400px;
+        border: 10px solid black;
+        border-radius: 50%;
+        margin: 0 auto;
+        position: relative;
+    }
+    #shi {
+        width: 400px;
+        height: 400px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        transform: rotateZ(0deg);
+    }
+    #shizhen {
+        position: absolute;
+        width: 16px;
+        height: 100px;
+        background: black;
+        top: 100px;
+        left: 192px;
+    }
+    #fen {
+        width: 400px;
+        height: 400px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        transform: rotateZ(0deg);
+    }
+    #fenzhen {
+        position: absolute;
+        width: 8px;
+        height: 150px;
+        background: black;
+        top: 50px;
+        left: 196px;
+    }
+    #miao {
+        width: 400px;
+        height: 400px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        transform: rotateZ(0deg);
+    }
+    #miaozhen {
+        position: absolute;
+        width: 2px;
+        height: 180px;
+        background: red;
+        top: 20px;
+        left: 199px;
+    }
+</style>
+<script>
+    window.onload = () => {
+        setInterval(() => {
+            let shizhen = document.getElementById('shi')
+            let fenzhen = document.getElementById('fen')
+            let miaozhen = document.getElementById('miao')
+            let time = document.getElementById('time')
+
+            const date = new Date()
+
+            let shiDeg = date.getHours()%12 * 30
+            shizhen.style.cssText = `transform: rotateZ(${shiDeg}deg)`
+
+            let fenDeg = date.getMinutes() * 360/60
+            fenzhen.style.cssText = `transform: rotateZ(${fenDeg}deg)`
+
+            let miaoDeg = date.getSeconds() * 360/60
+            miaozhen.style.cssText = `transform: rotateZ(${miaoDeg}deg)`
+
+            time.innerHTML = `${date.getHours()}:${date.getMinutes()<=9?'0'+date.getMinutes():date.getMinutes()}:${date.getSeconds()<=9?'0'+date.getSeconds():date.getSeconds()}`
+
+        },1000)
+    }
+</script>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>分页</title>
+    <meta charset="utf-8">
+</head>
+<body>
+<div>共<span id="pageCount"></span>页</div>
+<div id="page">显示的页数</div>
+<div>总数:<input type="value" id="total"></div>
+<div>每页显示的条数:<input type="value" id="page_size"></div>
+<button onclick="total_size()">确定</button>
+<script>
+    // 点击确定pageCount盒子显示页数  page盒子显示的页数被替换成123..10页数
+    // 总数page的盒子 / 显示的条数盒子page_size = pageCount盒子
+    function total_size() {
+        total = document.getElementById('total').value;
+        page_size = document.getElementById('page_size').value;
+        // 如果%等于0,取total / page_size的值 否则取Math.ceil(total/page_size)值
+        var pageCount = total % page_size == 0 ? total / page_size : Math.ceil(total/page_size);
+        document.getElementById('pageCount').innerHTML = pageCount;
+        console.log(pageCount);
+        var over = '';
+        var over1 = '1 2 3';
+        if (pageCount < 4){
+            for (let i = 1; i < pageCount; i++) {
+                over += i + ' ';
+            }
+            document.getElementById('page').innerHTML = pageCount;
+        }else {
+            if (pageCount == 4) {
+                over1 += " ";
+            }else {
+                over1 += "...";
+            }
+            document.getElementById('page').innerHTML = over1 + pageCount;
+        }
+    };
+</script>
+</body>
+</html>

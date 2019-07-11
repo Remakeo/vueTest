@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>数组去重</title>
+</head>
+<body>
+    <script>
+        let arr = [5,6,10,10,5,8,6];
+        let arr1 = [];
+        for (i = 0; i< arr.length; i++) {
+            if (arr1.indexOf(arr[i]) == -1) {
+                arr1.push(arr[i])
+            }else {}
+        }
+        console.log(arr1)
+        // 数组去重第二种方法
+        // var arrays1 = [2, 4, 6, 6, 8, 6, 9, 9];
+        // var arrays2 = [];
+        // for (var i = 0; i < arrays1.length; i++) {
+        //     // console.log(i);
+        //     if(arrays2.indexOf(arrays1[i]) !== -1){
+        //         continue;
+        //     }
+        //     arrays2.push(arrays1[i]);
+        // }
+    </script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>例子</title>
+</head>
+<body>
+    <div></div>
+    <script>
+        var arr = ['a', 'b', 'c', 'd', 'e']
+        // 数组的增删改 arr.splice(index,howmany,item.......) 改变数组！！！
+        //1.在a和b之间加个f和g
+            arr.splice(1,0,"f","g")
+            console.log(arr)
+        //2.在删掉d和e
+        arr.splice(5,2)
+        console.log(arr)
+        //3把c改成c1
+        arr.splice(4,1,"c1")
+        console.log(arr)
+        // 截取arr下标2-4的并返回
+        arr.slice(2,4)
+        console.log(arr.slice(2,4))
+    </script>
+</body>
+</html>

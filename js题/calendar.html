@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>封装日历组件</title>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+
+</head>
+<body>
+    <div id="calendar">
+        <!--先把年份和月份循环出来-->
+        <div class="month">
+            <ul>
+                <!--上个月-->
+                <li class="arrow" @click="pickLeft(currentYear,currentMOnth)"></li>
+                <!--日期显示-->
+                <li class="year-month" @click="pickYear(currentYear,currentMonth)">
+                    <!--年-->
+                    <span class="choose-year">{{currentYear}}</span>
+                    <!--月-->
+                    <span class="choose-month">{{currentMonth}}</span>
+                </li>
+                <!--下个月-->
+                <li class="arrow" @click="pickRight(currentYear,currentMOnth)"></li>
+            </ul>
+        </div>
+        <!--星期-->
+        <ul class="weekdays">
+            <li>一</li>
+            <li>二</li>
+            <li>三</li>
+            <li>四</li>
+            <li>五</li>
+            <li style="color: red;">六</li>
+            <li style="color: red;">日</li>
+        </ul>
+        <!--日期-->
+        <ul class="days">
+            <!-- 核心 v-for循环 每一次循环用<li>标签创建一天 -->
+            <li v-for="dayobject in days">
+                <!--本月-->
+                <!--如果不是本月  改变类名加背景色-->
+                <span v-if="dayobject.day.getMonth()+1 != currentMonth" class="other_month">{{ dayobject.day.getDate() }}</span>
+                <!--如果是本月  还需要判断是不是这一天-->
+                <span v-else>
+                    <!--今天  同年同月同日-->
+                    <span v-if="dayobject.day.getFullYear() == new Date().getFullYear() && dayobject.day.getMonth() == new Date().getMonth() && dayobject.day.getDate() == new Date().getDate()" class="active">{{dayobject.day.getDate() }}</span>
+                    <span v-else>{{ dayobject.day.getDate() }}</span>
+                </span>
+            </li>
+        </ul>
+    </div>
+    <script>
+        var myVue = new Vue({
+            el: '#calendar',
+            data: {
+                currentDay: 1,
+                currentMonth: 1,
+                currentYear: 2019,
+                currentWeek: 1,
+                days: []
+            },
+            created: function() {
+                this.initData(null);
+            },
+            methods: {
+                initData: function(cur) {
+                    let date;
+                    if (cur) {
+                        date = new Date(cur);
+                    } else {
+                        let now = new Date();
+                        let d = new Date(this.formatDate(now.getFullYear(),now.getMonth(), 1));
+                        d.setDate(35);
+                        date = newDate(this.formatDate(d.getFullYear(),d.getMonth() + 1,1));
+                    }
+                    this.currentDay = date.getDate();
+                    this.currentYear = date.getFullYear();
+                    this.currentMonth = date.getMonth() + 1;
+
+                    this.currentWeek = date.getDay();
+                    if (this.currentWeek == 0) {
+                        this.currentWeek = 7;
+                    }
+                    var str = this.formatDate(this.currentYear, this.currentMonth, this.currentDay);
+                    this.days.length = 0;
+                    // 今天是周日，放在第一行第7个位置，前面6个
+                    //初始化本周
+                    for (var i = this.currentWeek -1;i>= 0; i--) {
+                        var d = new Date(str);
+                        s.setDate(d.getDate() - i);
+                        var dayObject = {}; //用一个对象包装Date对象  以便为以后预定功能添加属性
+                        dayObject.day=d;
+                        this.days.push(dayObject);//将日期放入data 中的days数组 供页面渲染使用
+                    }
+                    // 其他周
+                    for (var i = 1; i<= 35 - this.currentWeek; i++) {
+                        var d = new Date(str);
+                        d.setDate(d.getDate() + i);
+                        var dayobject = {};
+                        dayobject.day = d;
+                        this.days.push(dayobject);
+                    }
+                },
+                // 上个月
+                pickLeft: function (year,month) {
+                    // setDate(0); 上月最后一天
+                    // setDate(-1); 上月倒数第二天
+                    // setDate(dx) 参数dx为 上月最后一天的前后dx天
+                    var d = new Date(this.formatDate(year, month, 1));
+                    d.setDate(0);
+                    this.initData(this.formatDate(d.getFullYear(),d.getMonth() + 1,1));
+                },
+                pickRight: function(year,month) {
+                    var d = new Date(this.formatDate(year, month, 1));
+                    d.setDate(0);
+                    this.initData(this.formatDate(d.getFullYear(),d.getMonth() + 1, 1));
+                },
+                // 当前年份和月份
+                pickYear: function (year,month) {
+                    alert(year + "," + month);
+                },
+                // 给月份和日期补0
+                formatDate: function (year,month,day) {
+                    if (month<10) {
+                        month = "0" + month;
+                    }
+                    if (day<10) {
+                        day = "0" + day;
+                    }
+                    return year + "-" + month + "-" + day
+                }
+            }
+        })
+    </script>
+</body>
+</html>
