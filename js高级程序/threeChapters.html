@@ -6,12 +6,39 @@
 </head>
 <body>
     <div id="demo"></div>
+    <input type="text" id="in">
+    <button id="btn" onclick="say(liu,18)">点击输出结果</button>
     <script>
-        document.write(parseInt('070'));
-        // 第1位的数（0或1）乘以2的1次方
-        // 0+2+4+0+16+64+128
-        // document.write(a.valueOf())
-        // console.log(typeof(a))
+        function say(name,age) {
+            alert('hi' + '---'+ 'name' + '---' + 'age')
+        }
+        // var i;
+        // function but() {
+        //     i = document.getElementById('in').value;
+        //     switch (true){
+        //         case i >= 0 && i < 60 :
+        //             alert('不及格');
+        //             break;
+        //         case i > 60 && i <= 100 :
+        //             alert('优秀');
+        //             break;
+        //         case i == 60 :
+        //             alert('及格')
+        //     }
+        //     // if (i > 100) {
+        //     //     alert('请重新输入！！')
+        //     //     return
+        //     // }
+        //     // if (i <60) {
+        //     //     alert('不及格');
+        //     // } else if (i > 60) {
+        //     //     alert('优秀');
+        //     // }else {
+        //     //     alert('及格');
+        //     // }
+            console.log(say())
+        // }
+        // document.write(age)
     </script>
 </body>
 </html>
