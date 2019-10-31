@@ -8,22 +8,36 @@
 <body>
     <div id="app">
         <button v-if="showBtn" v-on:click="handleClick">click me!</button>
-        <!--<ul>-->
-            <!--<li v-for="item in books">{{ item.name }}</li>-->
-        <!--</ul>-->
+        <ul>
+            <li v-for="item in books">{{item.name}}</li>
+        </ul>
         {{message}}
+        <input type="text" v-model="message">
+        <p>{{date}}</p>
     </div>
     <script>
         var app = new Vue({
             el: '#app',
             data: {
+                date:new Date(),
                 showBtn: true,
                 books: [
-                    // {name: 'jsgaojichengxu'},
-                    // {name: '2'},
-                    // {name: '3'}
+                    {name: 'js高级程序'},
+                    {name: 'vue实战'},
+                    {name: 'es6'}
                 ],
                 message: '你好'
+            },
+            mounted:function() {
+                var that = this;
+                this.timer = setInterval(function () {
+                    that.date = new Date();
+                },1000)
+            },
+            beforeDestroy:function(){
+                if (this.timer) {
+                    clearInterval(this.timer);
+                }
             },
             methods: {
                 handleClick:function () {
