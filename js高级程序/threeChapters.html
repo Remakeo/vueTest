@@ -3,42 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <title>前三章</title>
+    <style>
+        .head_left{
+            width: 15px;
+            height: 40px;
+        }
+        .head_right{
+            width: 280px;
+        }
+        a{
+            display: block;
+            height: 40px;
+            float: left;
+            font-size: 1.2em;
+            padding-right: 0.8em;
+            background: url("../list1.jpg") no-repeat scroll top right;
+        }
+        a span{
+            background: url("../list2.jpg") no-repeat;
+            display: block;
+            line-height: 40px;
+            padding-left: 0.8em;
+        }
+    </style>
 </head>
 <body>
-    <div id="demo"></div>
-    <input type="text" id="in">
-    <button id="btn" onclick="say(liu,18)">点击输出结果</button>
+    <a href="#">
+        <span>Box Title</span>
+        <!--<img src="../list1.jpg" alt="">-->
+    </a>
+    <!--第三章-->
     <script>
-        function say(name,age) {
-            alert('hi' + '---'+ 'name' + '---' + 'age')
-        }
-        // var i;
-        // function but() {
-        //     i = document.getElementById('in').value;
-        //     switch (true){
-        //         case i >= 0 && i < 60 :
-        //             alert('不及格');
-        //             break;
-        //         case i > 60 && i <= 100 :
-        //             alert('优秀');
-        //             break;
-        //         case i == 60 :
-        //             alert('及格')
-        //     }
-        //     // if (i > 100) {
-        //     //     alert('请重新输入！！')
-        //     //     return
-        //     // }
-        //     // if (i <60) {
-        //     //     alert('不及格');
-        //     // } else if (i > 60) {
-        //     //     alert('优秀');
-        //     // }else {
-        //     //     alert('及格');
-        //     // }
-            console.log(say())
+        // if(test){
+        //     test=false;
+        //     alert('test');
         // }
-        // document.write(age)
     </script>
 </body>
 </html>
