@@ -35,9 +35,20 @@
     </a>
     <!--第三章-->
     <script>
+        function sum(num1,num2) {
+            return num1+num2;
+        }
+        var result = sum(5+10);
+        console.log(result);
+        function say(name,message) {
+            console.log("Hello" + "," + name +","  + message);
+        }
+        say("lihua","Hao are you?")
+
         switch("hello world"){
-            case "hello" + "world":
-                alert("was");
+        // switch("goodbye"){
+            case "hello world":
+                // alert("was");
                 break;
             case "goodbye":
                 alert("close");
