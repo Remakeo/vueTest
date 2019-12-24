@@ -5,13 +5,57 @@
     <title>vue文档</title>
 </head>
 <body>
-    <div id="app">{{message}}</div>
+    <div id="app">
+        <span v-if="tr">1111</span>
+        <ul>
+            <li v-for="item in list">{{item.text}}</li>
+        </ul>
+        <p v-once>{{me1}}</p>
+        <p>{{me}}</p>
+        <input type="text" v-model="me">
+        <button v-on:click="re">反转消息</button>
+        <ol>
+            <todo-item
+                v-for="item in list"
+                v-bind:todo = 'item'
+                v-bind:key="item.id"
+            ></todo-item>
+        </ol>
+        <p>{{rhtml}}</p>
+        <p>
+            <span v-html="rhtml"></span>
+        </p>
+        <button v-bind:aria-disabled="isBtn">按钮</button>
+    </div>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script>
+        Vue.component('todo-item',{
+            props:['todo'],
+            template:'<li>{{todo.text}}</li>'
+        })
         var app = new Vue({
             el: '#app',
             data:{
-                message: 'vue...'
+                list:[
+                    {id: 0,text:'11'},
+                    {id: 1,text:'22'},
+                    {id: 2,text:'33'},
+                ],
+                tr:true,
+                message: '页面加载于'+new Date().toLocaleString(),
+                me1: 'hello1',
+                me: 'hello',
+                isBtn: false,
+                rhtml:'<span style="color: red;"></span>'
+            },
+            // 实例被创建
+            created:function(){
+                // alert('a is:' + this.me)
+            },
+            methods:{
+                re:function () {
+                    this.me1 = this.me1.split('').reverse().join('')
+                }
             }
         })
     </script>
