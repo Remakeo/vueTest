@@ -13,19 +13,19 @@
         <p v-once>{{me1}}</p>
         <p>{{me}}</p>
         <input type="text" v-model="me">
-        <button v-on:click="re">反转消息</button>
+        <button @click="re">反转消息</button>
         <ol>
             <todo-item
                 v-for="item in list"
-                v-bind:todo = 'item'
-                v-bind:key="item.id"
+                :todo = 'item'
+                :key="item.id"
             ></todo-item>
         </ol>
         <p>{{rhtml}}</p>
         <p>
             <span v-html="rhtml"></span>
         </p>
-        <button v-bind:aria-disabled="isBtn">按钮</button>
+        <button :aria-disabled="isBtn">按钮</button>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script>
