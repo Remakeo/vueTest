@@ -6,26 +6,28 @@
 </head>
 <body>
     <div id="app">
-        <span v-if="tr">1111</span>
-        <ul>
-            <li v-for="item in list">{{item.text}}</li>
-        </ul>
-        <p v-once>{{me1}}</p>
-        <p>{{me}}</p>
-        <input type="text" v-model="me">
-        <button @click="re">反转消息</button>
-        <ol>
-            <todo-item
-                v-for="item in list"
-                :todo = 'item'
-                :key="item.id"
-            ></todo-item>
-        </ol>
-        <p>{{rhtml}}</p>
-        <p>
-            <span v-html="rhtml"></span>
-        </p>
-        <button :aria-disabled="isBtn">按钮</button>
+<!--        <span v-if="tr">1111</span>-->
+<!--        <ul>-->
+<!--            <li v-for="item in list">{{item.text}}</li>-->
+<!--        </ul>-->
+<!--        <p v-once>{{me1}}</p>-->
+<!--        <p>{{me}}</p>-->
+<!--        <input type="text" v-model="me">-->
+<!--        <button @click="re">反转消息</button>-->
+<!--        <ol>-->
+<!--            <todo-item-->
+<!--                v-for="item in list"-->
+<!--                :todo = 'item'-->
+<!--                :key="item.id"-->
+<!--            ></todo-item>-->
+<!--        </ol>-->
+<!--        <p>{{rhtml}}</p>-->
+<!--        <p>-->
+<!--            <span v-html="rhtml"></span>-->
+<!--        </p>-->
+<!--        <button :aria-disabled="isBtn">按钮</button>-->
+        <p>message:'{{message}}'</p>
+        <p>reversed:'{{reversedMessage}}'</p>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script>
@@ -42,11 +44,17 @@
                     {id: 2,text:'33'},
                 ],
                 tr:true,
-                message: '页面加载于'+new Date().toLocaleString(),
+                // message: '页面加载于'+new Date().toLocaleString(),
+                message: 'hello',
                 me1: 'hello1',
                 me: 'hello',
                 isBtn: false,
                 rhtml:'<span style="color: red;"></span>'
+            },
+            computed: {
+                reversedMessage:function () {
+                    return this.message.split('').reverse().join('')
+                }
             },
             // 实例被创建
             created:function(){
