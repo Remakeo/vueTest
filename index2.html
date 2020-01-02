@@ -6,8 +6,8 @@
 </head>
 <body>
     <div id="app">
-        <span>姓名:</span>
-        <p>{{allName}}</p>
+        <!--<span>姓名:</span>-->
+        <!--<p>{{allName}}</p>-->
 <!--        <span v-if="tr">1111</span>-->
 <!--        <ul>-->
 <!--            <li v-for="item in list">{{item.text}}</li>-->
@@ -31,15 +31,19 @@
         <!--<p>message:'{{message}}'</p>-->
         <!--<p>reversed:'{{reversedMessage}}'</p>-->
     </div>
+    <div id="app2">
+        {{reversedText}}
+    </div>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script>
         // Vue.component('todo-item',{
         //     props:['todo'],
         //     template:'<li>{{todo.text}}</li>'
         // })
-        var app = new Vue({
+        var app1 = new Vue({
             el: '#app',
             data:{
+                text: '123,456',
                 name1:'liu',
                 nameLast: 'zhiying',
                 package1:[
@@ -97,8 +101,12 @@
                     },
                     set: function (newValue) {
                         var names = newValue.split('');
+                        console.log(names);
                         this.names = name[0];
+                        console.log(names +'--------names')
                         this.nameLast= names[names.length-1];
+                        console.log(nameLast + "-----------lastname");
+                        console.log(names.length-1+"--------  -1");
                     }
                 },
                 prices:function () {
@@ -122,6 +130,14 @@
                 },
                 re:function () {
                     this.me1 = this.me1.split('').reverse().join('')
+                }
+            }
+        })
+        var app2 = new Vue({
+            el:"#app2",
+            computed:{
+                reversedText:function () {
+                    return app1.text.split(',').reverse().join(',');
                 }
             }
         })
