@@ -6,32 +6,49 @@
 </head>
 <body>
     <div id="app">
-      <button :class="classes">1</button>
-        <my-com :class="{'size' : isTrue}"></my-com>
-        <div :style="{ 'color': color, 'fontSize' : fontSize + 'px'}">文本</div>
+        <div v-if="type === 'A'">A</div>
+        <div v-else-if="type === 'B'">B</div>
+        <div v-else-if="type === 'C'">C</div>
+        <div v-else>NOT abc</div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script>
+        // vuejs.实战第四章完结
+        // vue文档
         // 组件
         Vue.component('my-com',{
             template: '<p class="act">一些文本</p>'
         })
-        var app1 = new Vue({
+        var vm = new Vue({
             el:"#app",
             data: {
-                color: 'red',
-                fontSize: 15,
-                isTrue:true,
-                // isFalse:false,
-                error: "1",
-                message: '11',
-                opts1: 'active',
-                opts2: 'error',
-                size1: 'large',
-                size: 'large',
-                disabled: true
+                firstName: 'liu',
+                lastName: 'zy',
+                ok: 'true',
+                type: 'A'
+                // fullName: 'Foo Bar'
+            },
+            watch: {
+                // firstName: function (val) {
+                //     console.log(val)
+                //     this.fullName = val + '' + this.lastName
+                // },
+                // lastName: function (val) {
+                //     console.log(val)
+                //     this.fullName = this.firstName + ''+ val
+                // }
             },
             computed:{
+                fullName: {
+                    get:function () {
+                        return this.firstName + '' + this.lastName
+                    },
+                    set: function (newValue) {
+                        var names = newValue.split(' ')
+                        this.firstName = names[0]
+                        this.lastName = names[names.length-1]
+                    }
+                },
                 classes: function(){
                     return [
                         'btn',
