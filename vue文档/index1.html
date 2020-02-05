@@ -1,32 +1,69 @@
-<!DOCTYPE html>
+9<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>vue第一章</title>
-    <script src="../vue.min.js"></script>
+    <title>购物车</title>
 </head>
 <body>
-    <div id="app">
-        <button v-if="showBtn" v-on:click="handleClick">click me!</button>
-        <ul>
-            <li v-for="item in books">{{item.name}}</li>
-        </ul>
-        {{message}}
-        <input type="text" v-model="message">
-        <p>{{date}}</p>
+    <!-- 51页 -->
+    <div id="app" v-cloak>
+        <template v-if="list.length">
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>商品名称</th>
+                        <th>商品单价</th>
+                        <th>购买数量</th>
+                        <th>操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="(item,index) in list">
+                        <td>{{index+1}}</td>
+                        <td>{{item.name}}</td>
+                        <td>{{item.price}}</td>
+                        <td>
+                            <button
+                                @clcik="handleReduce(index)" 
+                                :disabled = "item.num === 1">
+                            -</button>
+                            <button @click="handleAdd(index)">+</button>
+                        </td>
+                        <td>
+                            <button @click="handleRemove(index)">移除</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div>总价： ￥{{sumMoney}}</div>
+        </template>
+        <template v-else>购物车为空</template>
     </div>
     <script>
         var app = new Vue({
             el: '#app',
             data: {
-                date:new Date(),
-                showBtn: true,
-                books: [
-                    {name: '1'},
-                    {name: '2'},
-                    {name: '3'}
-                ],
-                message: '..'
+                list:[
+                    {
+                        id:1,
+                        name:phone7,
+                        price:5300,
+                        num:1
+                    }
+                    ],
+                    {
+                        id:2,
+                        name:phone8,
+                        price:5300,
+                        num:4
+                    },
+                    {
+                        id:3,
+                        name:phone8p,
+                        price:5300,
+                        num:10
+                    }
             },
             mounted:function() {
                 var that = this;
@@ -39,6 +76,14 @@
                     clearInterval(this.timer);
                 }
             },
+            computed: {
+                var total = 0;
+                for (var i = 0; i < this.list.length;  i++) {
+                    var item = this.list[i];
+                    total += item.price * item.num
+                }
+                return total.toString().replace(/\B(?=(\d{3})+$)/g,',');
+            },
             methods: {
                 handleClick:function () {
                    console.log("我被点击了!!!")
@@ -46,5 +91,7 @@
             }
         })
     </script>
+    <link rel="stylesheet" type="text/css" href="shopCar.css">
+    <script src="../vue.min.js"></script>
 </body>
 </html>
