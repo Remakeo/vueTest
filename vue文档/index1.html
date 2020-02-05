@@ -24,10 +24,7 @@
                         <td>{{item.name}}</td>
                         <td>{{item.price}}</td>
                         <td>
-                            <button
-                                @clcik="handleReduce(index)" 
-                                :disabled = "item.num === 1">
-                            -</button>
+                            <button @clcik="handleReduce(index)" :disabled = "item.num === 1">-</button>
                             <button @click="handleAdd(index)">+</button>
                         </td>
                         <td>
