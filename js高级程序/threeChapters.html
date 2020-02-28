@@ -4,77 +4,87 @@
     <meta charset="UTF-8">
     <title>前三章</title>
     <style>
-        .head_left{
-            width: 15px;
-            height: 40px;
+        #login-box{
+            display: none;
+            color: red;
+            margin-left: 20px;
+            border: 1px solid #4CAF50;
         }
-        .head_right{
-            width: 280px;
-        }
-        a{
-            display: block;
-            height: 40px;
-            float: left;
-            font-size: 1.2em;
-            padding-right: 0.8em;
-            background: url("../list1.jpg") no-repeat scroll top right;
-        }
-        a span{
-            background: url("../list2.jpg") no-repeat;
-            display: block;
-            line-height: 40px;
-            padding-left: 0.8em;
-        }
+        /*.head_left{*/
+        /*    width: 15px;*/
+        /*    height: 40px;*/
+        /*}*/
+        /*.head_right{*/
+        /*    width: 280px;*/
+        /*}*/
+        /*a{*/
+        /*    display: block;*/
+        /*    height: 40px;*/
+        /*    float: left;*/
+        /*    font-size: 1.2em;*/
+        /*    padding-right: 0.8em;*/
+        /*    background: url("../list1.jpg") no-repeat scroll top right;*/
+        /*}*/
+        /*a span{*/
+        /*    background: url("../list2.jpg") no-repeat;*/
+        /*    display: block;*/
+        /*    line-height: 40px;*/
+        /*    padding-left: 0.8em;*/
+        /*}*/
     </style>
 </head>
 <body>
-<!--圆角图片-->
-    <a href="#">
-        <span>Box Title</span>
+    <!--圆角图片-->
+    <!--<a href="#">-->
+    <!--<span>Box Title</span>-->
         <!--<img src="../list1.jpg" alt="">-->
-    </a>
+    <!--</a>-->
     <!--第三章-->
+    <a href="" id="login-btn">鼠标放在这里</a>
+    <div id="login-box">悬浮显示的文字</div>
     <script>
-        function sum(num1,num2) {
-            return num1+num2;
-        }
-        var result = sum(5+10);
-        console.log(result);
-        function say(name,message) {
-            console.log("Hello" + "," + name +","  + message);
-        }
-        say("lihua","Hao are you?")
-
-        switch("hello world"){
-        // switch("goodbye"){
-            case "hello world":
-                // alert("was");
-                break;
-            case "goodbye":
-                alert("close");
-                break;
-            default:
-                alert("not both")
-        };
-        var a;
-        a = function b() {
-        }
-        var num1= 222;
-        var num2 = 20;
-        var num3 = --num1+ num2;
-        // console.log(num3);
-        var max = (num1>num2)?num1:num2;
-        console.log(max);
-        function go(num) {
-            return num;
-        }
-        console.log(typeof(a));
-
-        console.log(typeof(null));
+        // function sum(num1,num2) {
+        //     return num1+num2;
+        // }
+        // var result = sum(5+10);
+        // console.log(result);
+        // function say(name,message) {
+        //     console.log("Hello" + "," + name +","  + message);
+        // }
+        // say("lihua","Hao are you?")
+        //
+        // switch("hello world"){
+        // // switch("goodbye"){
+        //     case "hello world":
+        //         // alert("was");
+        //         break;
+        //     case "goodbye":
+        //         alert("close");
+        //         break;
+        //     default:
+        //         alert("not both")
+        // };
+        // var a;
+        // a = function b() {
+        // }
+        // var num1= 222;
+        // var num2 = 20;
+        // var num3 = --num1+ num2;
+        // // console.log(num3);
+        // var max = (num1>num2)?num1:num2;
+        // console.log(max);
+        // function go(num) {
+        //     return num;
+        // }
+        // console.log(typeof(a));
+        //
+        // console.log(typeof(null));
         // if(test){
         //     test=false;
         //     alert('test');
         // }
     </script>
+    <script src="../jquery-3.4.1.min.js"></script>
+
 </body>
 </html>

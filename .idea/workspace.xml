@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6bae3350-3127-48d9-8f2e-45561ed8f0ad" name="Default Changelist" comment="进度条demo">
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="6bae3350-3127-48d9-8f2e-45561ed8f0ad" name="Default Changelist" comment="计算属性文档">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index2.html" beforeDir="false" afterPath="$PROJECT_DIR$/index2.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js高级程序/threeChapters.html" beforeDir="false" afterPath="$PROJECT_DIR$/js高级程序/threeChapters.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -13,34 +14,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/vue文档/index1.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="162">
-              <caret line="6" column="7" selection-start-line="6" selection-start-column="7" selection-end-line="6" selection-end-column="7" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index2.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-27">
-              <caret line="17" column="13" lean-forward="true" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
-              <folding>
-                <element signature="n#head#0;n#html#0;n#!!top" />
-                <element signature="e#442#501#0" />
-                <element signature="e#554#720#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/jdt.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="864">
-              <caret line="32" column="42" selection-start-line="32" selection-start-column="42" selection-end-line="32" selection-end-column="42" />
+            <state relative-caret-position="393">
+              <caret line="19" column="43" lean-forward="true" selection-start-line="19" selection-start-column="43" selection-end-line="19" selection-end-column="43" />
             </state>
           </provider>
         </entry>
@@ -69,27 +47,46 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/jdt.html" />
         <option value="$PROJECT_DIR$/index2.html" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="1028" />
-    <option name="width" value="579" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="572" />
+    <option name="y" value="148" />
+    <option name="width" value="1192" />
     <option name="height" value="867" />
   </component>
+  <component name="ProjectId" id="1WBSc0RAIUo9JTkJqOorQNZCCTh" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
-    <panes />
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="vueTest" type="b2602c69:ProjectViewProjectNode" />
+              <item name="vueTest" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../11111/car_networking" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../vehiclevue" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -105,6 +102,18 @@
         <RuleState>
           <option name="name" value="StatusDashboardGroupingRule" />
         </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
       </list>
     </option>
   </component>
@@ -137,7 +146,29 @@
       <workItem from="1577926046266" duration="597000" />
       <workItem from="1577934552594" duration="598000" />
       <workItem from="1577936936315" duration="594000" />
-      <workItem from="1578012742169" duration="7117000" />
+      <workItem from="1578012742169" duration="7717000" />
+      <workItem from="1578106631663" duration="9000" />
+      <workItem from="1578106664099" duration="708000" />
+      <workItem from="1578139992419" duration="14000" />
+      <workItem from="1578140028245" duration="9000" />
+      <workItem from="1578541945742" duration="2222000" />
+      <workItem from="1578621581256" duration="762000" />
+      <workItem from="1578622399845" duration="4000" />
+      <workItem from="1578906327845" duration="1242000" />
+      <workItem from="1578964628999" duration="591000" />
+      <workItem from="1578982480488" duration="2599000" />
+      <workItem from="1579050755582" duration="1230000" />
+      <workItem from="1579081636960" duration="596000" />
+      <workItem from="1579136762440" duration="596000" />
+      <workItem from="1579222470284" duration="598000" />
+      <workItem from="1579395528127" duration="596000" />
+      <workItem from="1579412118190" duration="597000" />
+      <workItem from="1579483249157" duration="598000" />
+      <workItem from="1580690936422" duration="597000" />
+      <workItem from="1582685229421" duration="630000" />
+      <workItem from="1582686047753" duration="1149000" />
+      <workItem from="1582765446427" duration="1209000" />
+      <workItem from="1582850787940" duration="1262000" />
     </task>
     <task id="LOCAL-00001" summary="起步">
       <created>1577084117565</created>
@@ -181,17 +212,24 @@
       <option name="project" value="LOCAL" />
       <updated>1577324170928</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="计算属性文档">
+      <created>1578056453250</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1578056453251</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="32647000" />
+    <option name="totallyTimeSpent" value="14094000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1028" y="0" width="579" height="867" extended-state="1" />
+    <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.15525982" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.096958175" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -203,7 +241,7 @@
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" />
-      <window_info anchor="bottom" id="Terminal" order="9" weight="0.3287858" />
+      <window_info anchor="bottom" id="Terminal" order="9" weight="0.28436658" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -219,35 +257,17 @@
     <MESSAGE value="缩写菜单" />
     <MESSAGE value="计算属性" />
     <MESSAGE value="进度条demo" />
-    <option name="LAST_COMMIT_MESSAGE" value="进度条demo" />
+    <MESSAGE value="计算属性文档" />
+    <option name="LAST_COMMIT_MESSAGE" value="计算属性文档" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/jquery-3.4.1.min.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vue文档/index1.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="6" column="7" selection-start-line="6" selection-start-column="7" selection-end-line="6" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/jdt.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="864">
-          <caret line="32" column="42" selection-start-line="32" selection-start-column="42" selection-end-line="32" selection-end-column="42" />
-        </state>
-      </provider>
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/index2.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-27">
-          <caret line="17" column="13" lean-forward="true" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
-          <folding>
-            <element signature="n#head#0;n#html#0;n#!!top" />
-            <element signature="e#442#501#0" />
-            <element signature="e#554#720#0" />
-          </folding>
+        <state relative-caret-position="393">
+          <caret line="19" column="43" lean-forward="true" selection-start-line="19" selection-start-column="43" selection-end-line="19" selection-end-column="43" />
         </state>
       </provider>
     </entry>
