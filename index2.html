@@ -2,113 +2,45 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>购物车</title>
+    <title>vue文档</title>
     <style>
-        table{
-            border: 1px solid #e9e9e9;
-            border-collapse: collapse;
-            border-spacing: 0;
-            empty-cells: show;
-        }
-        th,td{
-            padding: 8px 16px;
-            border:1px solid #e9e9e9;
-            text-align: left;
-        }
-        th{
-            background-color: #f7f7f7;
-            color: #5c6b77;
-            font-weight: 600;
-            white-space: nowrap;
+        .active{
+            color : red;
         }
     </style>
 </head>
 <body>
     <div id="app">
-       <template v-if="list.length">
-           <table>
-               <thead>
-                   <tr>
-                       <th></th>
-                       <th>商品名称</th>
-                       <th>商品单价</th>
-                       <th>购买数量</th>
-                       <th>操作</th>
-                   </tr>
-               </thead>
-               <tbody>
-                   <tr v-for="(item,index) in list">
-                       <td>{{index +1}}</td>
-                       <td>{{item.name}}</td>
-                       <td>{{item.price}}</td>
-                       <td>
-                           <button
-                            @click="handleJian(index)"
-                            :disabled = "item.count === 1">-</button>
-                           {{item.count}}
-                           <button @click="handleAdd(index)">+</button>
-                       </td>
-                       <td>
-                           <button @click="handleRemove(index)">移除</button>
-                       </td>
-                   </tr>
-               </tbody>
-           </table>
-           <div>总价:{{totalPrice}}</div>
-       </template>
-        <div v-else>购物车为空</div>
+        <ul>
+            <li @click='handleChange(index)' v-for="(item,index) in lists">{{item}}</li>
+        </ul>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script>
+        // vuejs.实战第五章购物车
         // 组件
-        Vue.component('my-com',{
-            template: '<p class="act">一些文本</p>'
-        })
-        var app1 = new Vue({
+        var vm = new Vue({
             el:"#app",
             data: {
-                totalPrice: '',
-                list:[
-                    {
-                        id:1,
-                        name:'name1',
-                        price: 100,
-                        count: 2
-                    },{
-                        id:2,
-                        name:'name2',
-                        price: 200,
-                        count: 2
-                    },{
-                        id:3,
-                        name:'name3',
-                        price: 300,
-                        count: 3
-                    }
-                ]
-            },
-            computed:{
-                totalPrice:function () {
-                    var total = 0;
-                    for(var i=0;i<this.list.length;i++){
-                        var item = this.list[i];
-                        total += item.price * item.count;
-                    }
-                    // return total.toString().replace(/\B(?=(\d{3})+$)/g),',');
-                    return total.toString();
-                }
+               lists: ['第一个','第二个','第三个','第四个'],
             },
             methods:{
-                handleJian(index){
-                    if (this.list[index].count === 1) return;
-                    this.list[index].count--;
+                handleChange:function (i) {
+                    // 绑定class类然后移除相邻的class类
+
+                }
+            },
+            computed:{
+                filterLists: function(){
+                    return this.lists.filter(function(item){
+                        return item.name.match('js');
+                    })
                 },
-                handleAdd(index){
-                    this.list[index].count++;
-                },
-                handleRemove(index){
-                    this.list.splice(index,1);
-                },
+                sortLists: function(){
+                    return this.lists.sort(function(a,b){
+                        return a.name.length < b.name.length
+                    })
+                }
             }
         })
     </script>
