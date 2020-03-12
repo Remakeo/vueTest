@@ -3,10 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <title>vue文档</title>
+    <style>
+        .active{
+            color : red;
+        }
+    </style>
 </head>
 <body>
     <div id="app">
-        
+        <ul>
+            <li @click='handleChange(index)' v-for="(item,index) in lists">{{item}}</li>
+        </ul>
+    </div>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script>
         // vuejs.实战第五章购物车
@@ -14,28 +22,12 @@
         var vm = new Vue({
             el:"#app",
             data: {
-                count:0 ,
-                type: 'name',
-                lists:[
-                    {name:'1js'},
-                    {name:'2js2'},
-                    {name:'3'}
-                ],
-                user:{
-                    name:'liu',
-                    age:20,
-                    sex: 'woman'
-                }
-                // fullName: 'Foo Bar'
+               lists: ['第一个','第二个','第三个','第四个'],
             },
             methods:{
-                handleType:function(){
-                    this.type = this.type ==='name'?'mail':'name';
-                },
-                handleCount:function(item){
-                    // count = item || 1;
-                    // alert(item || 1);
-                    this.count+=item
+                handleChange:function (i) {
+                    // 绑定class类然后移除相邻的class类
+
                 }
             },
             computed:{

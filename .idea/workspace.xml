@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6bae3350-3127-48d9-8f2e-45561ed8f0ad" name="Default Changelist" comment="计算属性文档">
+    <list default="true" id="6bae3350-3127-48d9-8f2e-45561ed8f0ad" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index2.html" beforeDir="false" afterPath="$PROJECT_DIR$/index2.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js高级程序/threeChapters.html" beforeDir="false" afterPath="$PROJECT_DIR$/js高级程序/threeChapters.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -17,8 +16,11 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index2.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="393">
-              <caret line="19" column="43" lean-forward="true" selection-start-line="19" selection-start-column="43" selection-end-line="19" selection-end-column="43" />
+            <state relative-caret-position="621">
+              <caret line="29" selection-start-line="29" selection-end-line="29" />
+              <folding>
+                <element signature="e#1120#1532#0" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -51,9 +53,8 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="572" />
-    <option name="y" value="148" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="147" />
     <option name="width" value="1192" />
     <option name="height" value="867" />
   </component>
@@ -168,7 +169,16 @@
       <workItem from="1582685229421" duration="630000" />
       <workItem from="1582686047753" duration="1149000" />
       <workItem from="1582765446427" duration="1209000" />
-      <workItem from="1582850787940" duration="1262000" />
+      <workItem from="1582850787940" duration="2152000" />
+      <workItem from="1583110640806" duration="597000" />
+      <workItem from="1583196376060" duration="597000" />
+      <workItem from="1583283383568" duration="598000" />
+      <workItem from="1583369855701" duration="597000" />
+      <workItem from="1583456759021" duration="1202000" />
+      <workItem from="1583715455083" duration="608000" />
+      <workItem from="1583804319681" duration="596000" />
+      <workItem from="1583888419631" duration="597000" />
+      <workItem from="1583974204373" duration="1616000" />
     </task>
     <task id="LOCAL-00001" summary="起步">
       <created>1577084117565</created>
@@ -219,17 +229,31 @@
       <option name="project" value="LOCAL" />
       <updated>1578056453251</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="第五章购物车">
+      <created>1582858094691</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1582858094691</updated>
+    </task>
+    <task id="LOCAL-00009" summary="第五章购物车">
+      <created>1582858185538</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1582858185538</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="14094000" />
+    <option name="totallyTimeSpent" value="21992000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
+    <frame x="147" y="0" width="1192" height="867" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.096958175" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1880416" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -258,7 +282,8 @@
     <MESSAGE value="计算属性" />
     <MESSAGE value="进度条demo" />
     <MESSAGE value="计算属性文档" />
-    <option name="LAST_COMMIT_MESSAGE" value="计算属性文档" />
+    <MESSAGE value="第五章购物车" />
+    <option name="LAST_COMMIT_MESSAGE" value="第五章购物车" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/jdt.html">
@@ -266,8 +291,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/index2.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="393">
-          <caret line="19" column="43" lean-forward="true" selection-start-line="19" selection-start-column="43" selection-end-line="19" selection-end-column="43" />
+        <state relative-caret-position="621">
+          <caret line="29" selection-start-line="29" selection-end-line="29" />
+          <folding>
+            <element signature="e#1120#1532#0" />
+          </folding>
         </state>
       </provider>
     </entry>
