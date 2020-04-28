@@ -10,10 +10,12 @@
     </style>
 </head>
 <body>
+    <!--点击列表中的哪一项，那么该项文字变红色-->
     <div id="app">
-        <ul>
-            <li @click='handleChange(index)' v-for="(item,index) in lists">{{item}}</li>
-        </ul>
+<!--        <ul>-->
+<!--            <li @click='handleChange(index)' v-for="(item,index) in lists">{{index}}&#45;&#45;{{item}}</li>-->
+<!--        </ul>-->
+        <span>总价格:{{totalPrice}}</span>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script>
@@ -22,7 +24,13 @@
         var vm = new Vue({
             el:"#app",
             data: {
-               lists: ['第一个','第二个','第三个','第四个']
+               lists: ['第一个','第二个','第三个','第四个'],
+               books: [
+                   {id: '1',price: 11,name: '第一本书'},
+                   {id: '2',price: 97,name: '第二本书'},
+                   {id: '3',price: 98,name: '第三本书'},
+                   {id: '4',price: 99,name: '第四本书'}
+               ]
             },
             methods:{
                 handleChange:function (i) {
@@ -31,6 +39,21 @@
                 }
             },
             computed:{
+                totalPrice(){
+                    let result = 0;
+                    // for (let i = 0;i<this.books.length;i++){
+                    //     result += this.books[i].price;
+                    // }
+
+                    // for (let i in this.books){
+                    //     result += this.books[i].price;
+                    // }
+
+                    for (let book of this.books){
+                        result += book.price
+                    }
+                    return result
+                },
                 filterLists: function(){
                     return this.lists.filter(function(item){
                         return item.name.match('js');
