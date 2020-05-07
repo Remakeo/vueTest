@@ -7,19 +7,25 @@
   <body>
     <!--点击列表中哪一项就变红色-->
     <!--采取循环数据然后进行三目运算-->
-    <ul>
-      <li v-for="(item,index) in lists" @click="colorRed = index" :style="{color:colorRed == index? 'red': ''}">{{item}}</li>
-    </ul>
-    <span>总价格:{{totalPrice}}</span>
+    <div id="app">
+      <ul>
+        <li v-for="(item,index) in lists" @click="colorRed = index" :style="{color:colorRed == index? 'red': ''}">{{item}}</li>
+      </ul>
+      <span>总价格:{{totalPrice}}</span>
+      <span>总价格:{{getFullName()}}</span>
+    </div>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script>
       //解决jquery报错
       htmlPrefilter  =  function(html){
         return html;
       };
-      var vm= new Vue({
+      var vm = new Vue({
         el:'#app',
         data: {
+          firstName: 'liu',
+          lastName: 'yang',
+          colorRed: '',
           lists: ['第一个','第二个','第三个','第四个'],
           books: [
             {id: '1',price: 11,name: '第一本书'},
@@ -29,11 +35,27 @@
           ]
         },
         methods:{
-
+          getFullName:function () {
+            return this.firstName + ' '+ this.lastName
+          }
         },
         //计算属性
-        //计算属性
         computed:{
+          //对应的对象类型
+          fullName: {
+            //计算属性一般只实现get方法,set不用实现
+            get: function () {
+              return this.firstName+ ' ' + this.lastName
+            },
+            //计算属性一般没有set方法,只读属性
+            set: function (value) {
+              console.log('--------------')
+              console.log(value)
+              const arr = value.split(' ')
+              this.firstName = arr[0]
+              this.lastName = arr[1]
+            }
+          },
           totalPrice(){
             let result =0;
             //普通循环
