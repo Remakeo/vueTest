@@ -13,6 +13,10 @@
       </ul>
       <span>总价格:{{totalPrice}}</span>
       <span>总价格:{{getFullName()}}</span>
+      //v-on监听
+      <h2>{{count}}</h2>
+      <button @click="handleAdd">+</button>
+      <button @click="handleEdit">-</button>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script>
@@ -23,6 +27,7 @@
       var vm = new Vue({
         el:'#app',
         data: {
+          count: 0,
           firstName: 'liu',
           lastName: 'yang',
           colorRed: '',
@@ -35,6 +40,12 @@
           ]
         },
         methods:{
+          handleAdd(){
+            this.count++
+          },
+          handleEdit(){
+            this.count--
+          },
           getFullName:function () {
             return this.firstName + ' '+ this.lastName
           }
