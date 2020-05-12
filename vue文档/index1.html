@@ -47,8 +47,7 @@
                         name:phone7,
                         price:5300,
                         num:1
-                    }
-                    ],
+                    },
                     {
                         id:2,
                         name:phone8,
@@ -61,6 +60,7 @@
                         price:5300,
                         num:10
                     }
+                ],
             },
             mounted:function() {
                 var that = this;
@@ -74,9 +74,9 @@
                 }
             },
             computed: {
-                var total = 0;
-                for (var i = 0; i < this.list.length;  i++) {
-                    var item = this.list[i];
+                let total = 0,
+                for (let i = 0; i < this.list.length;  i++) {
+                  let item = this.list[i];
                     total += item.price * item.num
                 }
                 return total.toString().replace(/\B(?=(\d{3})+$)/g,',');
