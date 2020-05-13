@@ -26,7 +26,8 @@
     <div id="myProgress">
         <div id="myBar"></div>
     </div>
-    <button>按钮一</button>
+    <!--在事件定义时,写函数时省略了()，但方法本身是需要一个参数的,vue会默认将浏览器生成的event事件对象作为参数从传入到方法-->
+    <button @click="handleBtn">按钮一</button>
     <button>按钮二</button>
     <button>按钮三</button>
     <script>

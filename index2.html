@@ -17,6 +17,29 @@
       <h2>{{count}}</h2>
       <button @click="handleAdd">+</button>
       <button @click="handleEdit">-</button>
+      <!--v-on传参-->
+      <!--<button @click="handleBtn">按钮一</button>-->
+      <!--<button @click="handleBtn">按钮二</button>-->
+      <!--<button @click="handleBtn('abc',$event)">按钮三</button>-->
+      <!--v-on修饰符-->
+      <!--.stop修饰符-->
+      <div @click="divClick">
+        111
+        <!--<button @click.stop="handleBtn">按钮</button>-->
+      </div>
+      <!--.prevent修饰符-->
+      <form action="baidu">
+        <input type="submit" value="提交" @click.prevent="handleSubmit">
+      </form>
+      <!--.enter修饰符-->
+      <input type="text" @keyup.enter="handleKey">
+      <!--.enter修饰符-->
+      <button @click.once="handleBtn">按钮2</button>
+      <!--<h2>{{message}}</h2>-->
+      <h2 v-if="score >= 90">优秀</h2>
+      <h2 v-else-if="score >= 80">良好</h2>
+      <h2 v-else-if="score >= 60">及格</h2>
+      <h2 v-else>不及格</h2>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script>
@@ -28,6 +51,7 @@
         el:'#app',
         data: {
           count: 0,
+          score: 99,
           firstName: 'liu',
           lastName: 'yang',
           colorRed: '',
@@ -40,6 +64,18 @@
           ]
         },
         methods:{
+          handleKey(){
+            console.log('Key')
+          },
+          handleSubmit(){
+            console.log('submit')
+          },
+          divClick(){
+            console.log('divClick')
+          },
+          handleBtn(){
+            console.log('handleBtn')
+          },
           handleAdd(){
             this.count++
           },
@@ -52,6 +88,19 @@
         },
         //计算属性
         computed:{
+          result(){
+            let showMessage = '';
+            if (this.score >=90){
+              showMessage = '优秀'
+            } else if (this.score >=80){
+              showMessage = '良好'
+            }else if (this.score >=60){
+              showMessage = '及格'
+            }else {
+              showMessage = '不及格'
+            }
+            return showMessage
+          },
           //对应的对象类型
           fullName: {
             //计算属性一般只实现get方法,set不用实现
@@ -75,7 +124,7 @@
             }
             //in循环
             for (let i in this.books){
-              result+= this.books[i].price
+              result += this.books[i].price
             }
             //of循环
             for (let i of this.books){

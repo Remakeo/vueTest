@@ -73,16 +73,17 @@
                     clearInterval(this.timer);
                 }
             },
-            computed: {
-                let total = 0,
-                for (let i = 0; i < this.list.length;  i++) {
-                  let item = this.list[i];
-                    total += item.price * item.num
+          computed:{
+              totalNum(){
+                let total = 0
+                for(let i of this.list){
+                  total += i.price * i.num
                 }
                 return total.toString().replace(/\B(?=(\d{3})+$)/g,',');
-            },
+              },
+          },
             methods: {
-                handleClick:function () {
+                handleClick:function ( ) {
                    console.log("我被点击了!!!")
                 }
             }
