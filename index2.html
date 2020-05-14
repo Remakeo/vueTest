@@ -35,11 +35,21 @@
       <input type="text" @keyup.enter="handleKey">
       <!--.enter修饰符-->
       <button @click.once="handleBtn">按钮2</button>
-      <!--<h2>{{message}}</h2>-->
       <h2 v-if="score >= 90">优秀</h2>
       <h2 v-else-if="score >= 80">良好</h2>
       <h2 v-else-if="score >= 60">及格</h2>
       <h2 v-else>不及格</h2>
+      <h1>{{result}}</h1>
+      <span v-if="isUser">
+        <label for="userName">用户账号</label>
+        <input type="text" >
+        <input type="text" id="userName" placeholder="请输入用户账号">
+      </span>
+      <span v-else>
+        <label for="userEmail">用户邮箱</label>
+        <input type="text" id="userEmail" placeholder="请输入用户邮箱">
+      </span>
+      <button @click="isUser = !isUser">切换</button>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script>
@@ -50,6 +60,7 @@
       var vm = new Vue({
         el:'#app',
         data: {
+          isUser:true,
           count: 0,
           score: 99,
           firstName: 'liu',
