@@ -42,14 +42,25 @@
       <h1>{{result}}</h1>
       <span v-if="isUser">
         <label for="userName">用户账号</label>
-        <input type="text" >
-        <input type="text" id="userName" placeholder="请输入用户账号">
+        <input type="text" id="userName" placeholder="请输入用户账号" key="userName">
       </span>
       <span v-else>
         <label for="userEmail">用户邮箱</label>
-        <input type="text" id="userEmail" placeholder="请输入用户邮箱">
+        <input type="text" id="userEmail" placeholder="请输入用户邮箱" key="userEmail">
       </span>
       <button @click="isUser = !isUser">切换</button>
+      <!--v-show/v-if的使用 -->
+      <!--数组-->
+      <ul>
+        <li v-for="(item,index) in movie">{{index+1}}--{{item}}</li>
+      </ul>
+      <!--对象-->
+      <ul>
+        <li v-for="(value,key,index) in movies">{{value}}--{{key}}--{{index}}</li>
+      </ul>
+      <ul>
+        <li v-for="item in letters">{{item}}</li>
+      </ul>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script>
@@ -60,6 +71,7 @@
       var vm = new Vue({
         el:'#app',
         data: {
+          letters:['A','B','C','D','E'],
           isUser:true,
           count: 0,
           score: 99,
@@ -67,6 +79,12 @@
           lastName: 'yang',
           colorRed: '',
           lists: ['第一个','第二个','第三个','第四个'],
+          movie: ['第一个','第二个','第三个','第四个'],
+          movies: {
+            age: '18',
+            name: 'liu',
+            height: '188'
+          },
           books: [
             {id: '1',price: 11,name: '第一本书'},
             {id: '2',price: 97,name: '第二本书'},
