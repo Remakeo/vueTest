@@ -3,8 +3,89 @@
   <head>
     <meta charset="utf-8">
     <title>vue视频</title>
+    <style>
+      .container {
+        /*position: fixed;*/
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        /*background-color: rgba(0,0,0,.5);*/
+        text-align: center;
+        font-size: 0;
+        white-space: nowrap;
+        /*overflow: auto;*/
+        /*边框*/
+        /*border: 1px dashed rgb(44, 131, 221);*/
+        width: 579px;
+        height: 512px;
+        margin-left: 61px;
+        /*padding: 5px;*/
+        position: relative;
+
+      }
+
+      .container:after {
+        content: '';
+        display: inline-block;
+        height: 100%;
+        vertical-align: middle;
+      }
+
+      .dialog {
+        width: 100%;
+        height: 100%;
+        display: inline-block;
+        vertical-align: middle;
+        text-align: left;
+        font-size: 14px;
+        white-space: normal;
+        overflow: hidden;
+        /*border: 1px solid red;*/
+      }
+      .image-border{
+        position: absolute;
+        width: 20px;
+        height: 20px;
+      }
+      .border1{
+        top: 0;
+        left: 0;
+        border-left: 5px solid red;
+        border-top: 5px solid red;
+      }
+      .border2{
+        top: 0;
+        right: -2px;
+        border-right: 5px solid red;
+        border-top: 5px solid red;
+      }
+      .border3 {
+        bottom: 0;
+        left: 0;
+        border-bottom: 5px solid red;
+        border-left: 5px solid red;
+      }
+      .border4{
+        bottom: 0;
+        right: -2px;
+        border-right: 5px solid red;
+        border-bottom: 5px solid red;
+      }
+    </style>
   </head>
   <body>
+    <!--测试-->
+    <div class="container">
+      <div class="image-border border1"></div>
+      <div class="image-border border2"></div>
+      <div class="image-border border3"></div>
+      <div class="image-border border4"></div>
+      <div class="dialog">
+        111
+        <img src="loginPic.jpg" alt="">
+      </div>
+    </div>
     <!--点击列表中哪一项就变红色-->
     <!--采取循环数据然后进行三目运算-->
     <div id="app">
