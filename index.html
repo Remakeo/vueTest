@@ -6,6 +6,26 @@
 </head>
 <body>
   <div id="app">
+    <input type="text" v-model.trim="message">
+    输出:{{ message }}
+    <select name="" id="" v-model="selected">
+      <option :value="{number: 123}">123</option>
+    </select>
+    <p>选择的是: {{selected.number}}</p>
+
+    <input type="checkbox" v-model="picked" :true-value="value" :false-value="value1">
+    <label for="">复选框</label>
+    <p>{{picked}}</p>
+    <p>{{value}}</p>
+    <p>{{value1}}</p>
+
+    <input type="checkbox" v-model="checked" value="one">
+    <label>单选按钮1</label>
+    <input type="checkbox" v-model="checked" value="two">
+    <label>单选按钮2</label>
+    <input type="checkbox" v-model="checked" value="three">
+    <label>单选按钮3</label>
+    <p>选择的是: {{checked}}</p>
     <template v-if="goodsList.length">
       <table>
         <thead>
@@ -41,6 +61,24 @@
     var app = new Vue({
       el: '#app',
       data: {
+        value:1,
+        value1:2,
+        picked: false,
+        options:[
+          {
+            text: 'html',
+            value: 'Html'
+          },{
+            text: 'js',
+            value: 'JS'
+          },{
+            text: 'css',
+            value: 'Css'
+          }
+        ],
+        selected: '',
+        message: '',
+        checked: ['one','two'],
         goodsList: [
           {
             id: 1,
@@ -66,13 +104,16 @@
         totalPrice:function () {
           let result = 0
           for (i of this.goodsList){
-            console.log(i)
             result += i.price * i.num
           }
           return result.toString().replace(/\B(?=(\d{3})+$)/g,',');
         }
       },
       methods:{
+        handleInput(e){
+          console.log(e.target.value);
+          this.message = e.target.value
+        },
         handleReduction(index){
           if (this.goodsList[index].num ==1) return;
           this.goodsList[index].num --;
