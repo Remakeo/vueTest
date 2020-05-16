@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>vue实战</title>
+</head>
+<body>
+  <div id="app">
+    <template v-if="goodsList.length">
+      <table>
+        <thead>
+        <tr>
+          <td>商品名称</td>
+          <td>商品单价</td>
+          <td>数量</td>
+          <td>操作</td>
+        </tr>
+        </thead>
+        <tbody>
+          <tr v-for="(item,index) in goodsList">
+            <td>{{index+1}}</td>
+            <td>{{item.name}}</td>
+            <td>{{item.price}}</td>
+            <td>
+              <button @click="handleReduction(index)" :disabled="item.num == 1">-</button>
+              {{item.num}}
+              <button @click="handleAdd(index)">+</button>
+            </td>
+            <td>
+              <button @click="handleRemove(index)">移除</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <div>总价: {{totalPrice}}</div>
+    </template>
+    <div v-else>购物车为空</div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+    var app = new Vue({
+      el: '#app',
+      data: {
+        goodsList: [
+          {
+            id: 1,
+            name: 'iphone7',
+            price: '6666',
+            num: '10'
+          },
+          {
+            id: 2,
+            name: 'iphone6',
+            price: '5666',
+            num: '6'
+          },
+          {
+            id: 3,
+            name: 'iphone8',
+            price: '8666',
+            num: '1'
+          }
+        ]
+      },
+      computed:{
+        totalPrice:function () {
+          let result = 0
+          for (i of this.goodsList){
+            console.log(i)
+            result += i.price * i.num
+          }
+          return result.toString().replace(/\B(?=(\d{3})+$)/g,',');
+        }
+      },
+      methods:{
+        handleReduction(index){
+          if (this.goodsList[index].num ==1) return;
+          this.goodsList[index].num --;
+        },
+        handleAdd(index){
+          this.goodsList[index].num++
+        },
+        handleRemove(index){
+          this.goodsList.splice(index,1)
+        }
+      }
+    })
+  </script>
+</body>
+</html>
