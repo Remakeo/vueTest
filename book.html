@@ -6,6 +6,24 @@
 </head>
 <body>
   <div id="app">
+    <!--<Card style="width: 350px;">-->
+    <!--  <p slot="title">与xxx练习中</p>-->
+    <!--  <a href="#" slot="textarea">-->
+    <!--    <Icon type="android-close" size="18"></Icon>-->
+    <!--  </a>-->
+    <!--  <div style="height: 100px;">-->
+    <!--  </div>-->
+    <!--  <div>-->
+    <!--    <Row :gutter="16">-->
+    <!--      <i-col span="17">-->
+    <!--        <i-input v-model="value" placeholder="请输入xx"></i-input>-->
+    <!--      </i-col>-->
+    <!--      <i-col span="4">-->
+    <!--        <i-button type="primary" icon="paper-airplane">发送</i-button>-->
+    <!--      </i-col>-->
+    <!--    </Row>-->
+    <!--  </div>-->
+    <!--</Card>-->
     <input type="text" v-model.trim="message">
     输出:{{ message }}
     <select name="" id="" v-model="selected">
@@ -55,9 +73,17 @@
       <div>总价: {{totalPrice}}</div>
     </template>
     <div v-else>购物车为空</div>
+    <my-component></my-component>
+
   </div>
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
   <script>
+    var Child ={
+      template: '<div>这里是局部组件</div>'
+    };
+    //Vue.component('my-component',{
+    //  template: '<div>这里是组件得内容</div>'
+    //});
     var app = new Vue({
       el: '#app',
       data: {
@@ -100,6 +126,9 @@
           }
         ]
       },
+      component: {
+        'my-component':Child
+      },
       computed:{
         totalPrice:function () {
           let result = 0
@@ -115,17 +144,18 @@
           this.message = e.target.value
         },
         handleReduction(index){
-          if (this.goodsList[index].num ==1) return;
-          this.goodsList[index].num --;
+          if (this.goodsList[book].num ==1) return;
+          this.goodsList[book].num --;
         },
         handleAdd(index){
-          this.goodsList[index].num++
+          this.goodsList[book].num++
         },
         handleRemove(index){
-          this.goodsList.splice(index,1)
+          this.goodsList.splice(book,1)
         }
       }
     })
+
   </script>
 </body>
 </html>
