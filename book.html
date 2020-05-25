@@ -6,6 +6,7 @@
 </head>
 <body>
   <div id="app">
+    <my-component></my-component>
     <!--<Card style="width: 350px;">-->
     <!--  <p slot="title">与xxx练习中</p>-->
     <!--  <a href="#" slot="textarea">-->
@@ -73,14 +74,22 @@
       <div>总价: {{totalPrice}}</div>
     </template>
     <div v-else>购物车为空</div>
-    <my-component></my-component>
+    <!--<my-component></my-component>-->
 
   </div>
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
   <script>
-    var Child ={
-      template: '<div>这里是局部组件</div>'
-    };
+    //var Child ={
+    //  template: '<div>这里是局部组件</div>'q
+    //};my-component
+    Vue.component('my-component',{
+      template: '<div>{{ message }}</div>',
+      data:function () {
+        return {
+          message: '组件内容'
+        }
+      }
+    })
     //Vue.component('my-component',{
     //  template: '<div>这里是组件得内容</div>'
     //});
@@ -103,7 +112,7 @@
           }
         ],
         selected: '',
-        message: '',
+        message: '123',
         checked: ['one','two'],
         goodsList: [
           {
@@ -127,7 +136,7 @@
         ]
       },
       component: {
-        'my-component':Child
+        //'my-component':Child
       },
       computed:{
         totalPrice:function () {
