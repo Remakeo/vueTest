@@ -6,7 +6,9 @@
 </head>
 <body>
   <div id="app">
-    <my-component></my-component>
+    <input type="text" v-model="parentMessage">
+    <my-component :init-count="1"></my-component>
+    <!--<my-component :message="[1,2,3]"></my-component>-->
     <!--<Card style="width: 350px;">-->
     <!--  <p slot="title">与xxx练习中</p>-->
     <!--  <a href="#" slot="textarea">-->
@@ -82,11 +84,37 @@
     //var Child ={
     //  template: '<div>这里是局部组件</div>'q
     //};my-component
+    let data = {
+      counter: 0
+    }
     Vue.component('my-component',{
-      template: '<div>{{ message }}</div>',
+      props: {
+        propA: Number,
+        propB: [String,Number],
+        propC:{
+          type:Boolean,
+          default: true
+        },
+        propD: {
+          type: Number,
+          required: true
+        },
+        propE: {
+          type:Array,
+          default: function () {
+            return [];
+          }
+        },
+        propF: {
+          validator: function () {
+            return value > 10;
+          }
+        }
+      },
+      template: '<div>{{ count }}</div>',
       data:function () {
         return {
-          message: '组件内容'
+          count: this.initCount
         }
       }
     })
@@ -96,6 +124,7 @@
     var app = new Vue({
       el: '#app',
       data: {
+        parentMessage:'',
         value:1,
         value1:2,
         picked: false,
