@@ -36,11 +36,36 @@
             <div>总价:￥{{sumMoney}}</div>
         </template>
         <template v-else>购物车为空</template>
+      <p>总数:{{total}}</p>
+      <my-com @increase="handleGetTotal" @reduce="handleGetTotal"></my-com>
     </div>
     <script>
+      Vue.component('my-com',{
+        template: '\
+          <div>\
+            <button @click="handleIncrease">+1</button>\
+            <button @click="handleReduce">-1</button>\
+          </div>',
+        data:function () {
+          return {
+            counter: 0
+          }
+        },
+        methods: {
+          handleIncrease () {
+            this.counter++;
+            this.$emit('increase',this.counter)
+          },
+          handleReduce(){
+            this.counter--;
+            this.$emit('reduce',this.counter)
+          }
+        }
+      })
         var app = new Vue({
             el: '#app',
             data: {
+              total: 0,
                 list:[
                     {
                         id:1,
@@ -83,6 +108,9 @@
               },
           },
             methods: {
+              handleGetTotal(total){
+                this.total = total
+              },
                 handleClick:function ( ) {
                    console.log("我被点击了!!!")
                 }
