@@ -77,13 +77,13 @@
     </template>
     <div v-else>购物车为空</div>
     <!--<my-component></my-component>-->
-
+    <component :is="currentView"></component>
+    <button @click="handleChangeView('A')">切换到A</button>
+    <button @click="handleChangeView('B')">切换到B</button>
+    <button @click="handleChangeView('C')">切换到C</button>
   </div>
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
   <script>
-    //var Child ={
-    //  template: '<div>这里是局部组件</div>'q
-    //};my-component
     let data = {
       counter: 0
     }
@@ -95,10 +95,10 @@
           type:Boolean,
           default: true
         },
-        propD: {
-          type: Number,
-          required: true
-        },
+        //propD: {
+        //  type: Number,
+        //  required: true
+        //},
         propE: {
           type:Array,
           default: function () {
@@ -123,7 +123,19 @@
     //});
     var app = new Vue({
       el: '#app',
+      components: {
+        comA:{
+          template:'<div>组件A</div>'
+        },
+        comB:{
+          template:'<div>组件B</div>'
+        },
+        comC:{
+          template:'<div>组件C</div>'
+        }
+      },
       data: {
+        currentView:'A',
         parentMessage:'',
         value:1,
         value1:2,
@@ -164,9 +176,6 @@
           }
         ]
       },
-      component: {
-        //'my-component':Child
-      },
       computed:{
         totalPrice:function () {
           let result = 0
@@ -177,6 +186,10 @@
         }
       },
       methods:{
+        handleChangeView(component){
+          console.log(component)
+          this.currentView = 'com' + component
+        },
         handleInput(e){
           console.log(e.target.value);
           this.message = e.target.value
