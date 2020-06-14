@@ -7,8 +7,6 @@
 <body>
   <div id="app">
     <input type="text" v-model="parentMessage">
-    <my-component :init-count="1"></my-component>
-    <!--<my-component :message="[1,2,3]"></my-component>-->
     <!--<Card style="width: 350px;">-->
     <!--  <p slot="title">与xxx练习中</p>-->
     <!--  <a href="#" slot="textarea">-->
@@ -76,51 +74,26 @@
       <div>总价: {{totalPrice}}</div>
     </template>
     <div v-else>购物车为空</div>
-    <!--<my-component></my-component>-->
     <component :is="currentView"></component>
     <button @click="handleChangeView('A')">切换到A</button>
     <button @click="handleChangeView('B')">切换到B</button>
     <button @click="handleChangeView('C')">切换到C</button>
+    <child-com></child-com>
+    <div id="texts" v-if="showDiv">一段文本</div>
+    <button @click="getText">获取div内容</button>
   </div>
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
   <script>
     let data = {
       counter: 0
     }
-    Vue.component('my-component',{
-      props: {
-        propA: Number,
-        propB: [String,Number],
-        propC:{
-          type:Boolean,
-          default: true
-        },
-        //propD: {
-        //  type: Number,
-        //  required: true
-        //},
-        propE: {
-          type:Array,
-          default: function () {
-            return [];
-          }
-        },
-        propF: {
-          validator: function () {
-            return value > 10;
-          }
-        }
-      },
-      template: '<div>{{ count }}</div>',
-      data:function () {
-        return {
-          count: this.initCount
-        }
-      }
+    Vue.component('child-com',function (resolve,reject) {
+      window.setTimeout(function () {
+        resolve({
+          template: '<div>我是异步渲染的</div>'
+        })
+      },2000)
     })
-    //Vue.component('my-component',{
-    //  template: '<div>这里是组件得内容</div>'
-    //});
     var app = new Vue({
       el: '#app',
       components: {
@@ -135,6 +108,7 @@
         }
       },
       data: {
+        showDiv: false,
         currentView:'A',
         parentMessage:'',
         value:1,
@@ -186,6 +160,15 @@
         }
       },
       methods:{
+        getText(){
+          this.showDiv = true
+          this.$nextTick(function () {
+            let text = document.getElementById('texts').innerHTML;
+            let texts = document.getElementById('texts').innerText
+            console.log(text)
+            console.log(texts)
+          })
+        },
         handleChangeView(component){
           console.log(component)
           this.currentView = 'com' + component
@@ -206,7 +189,6 @@
         }
       }
     })
-
   </script>
 </body>
 </html>
