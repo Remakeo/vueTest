@@ -1,0 +1,35 @@
+body{
+    background-image: url("image/111.jpg");
+    width: 100%;
+}
+.main{
+    width: 90%;
+    margin: 10px auto;
+}
+.box{
+    float: left;
+    margin: 20px 120px;
+}
+.top{
+    width: 310px;
+    padding: 10px 20px;
+    background-color: beige;
+    font-size: 18px;
+    color: aqua;
+    font-weight: bold;
+ }
+.content{
+    background-color: #fff;
+}
+select{
+    border: 2px solid #ccc;
+    background-color: #fff;
+    width: 350px;
+    height: 470px;
+    padding: 10px;
+}
+.send{
+    width: 310px;
+    background-color: cadetblue;
+    padding: 10px 20px;
+}
